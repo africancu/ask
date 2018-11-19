@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @Auther: 周明军
+ * @Date: 2018/11/19 11:49
+ * @Description: 用户登录控制类
+ */
 @RestController
 @RequestMapping("/user")
 @Slf4j
