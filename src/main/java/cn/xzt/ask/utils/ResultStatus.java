@@ -22,6 +22,7 @@ public enum ResultStatus {
     INVALID_JSON(602, "JSON格式错误"),
     PARAM_ERROR(603, "参数错误"),
     NO_SERVICE(700, "未找到该服务"),
+    LOGIN_ERROR(701, "用户名或者密码错误"),
     ;
 
     private Integer code;
