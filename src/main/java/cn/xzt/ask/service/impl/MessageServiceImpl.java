@@ -34,11 +34,19 @@ public class MessageServiceImpl implements MessageService {
 
     }
 
+    /**
+     * 删除留言
+     * @param ids
+     */
     @Override
     public void deleteMessage(List<Integer> ids) {
         messageMapper.deleteMessage(ids);
     }
 
+    /**
+     * 回复留言
+     * @param message
+     */
     @Override
     public void relyMessage(Message message) {
         messageMapper.replyMessage(message);

@@ -11,7 +11,6 @@ import cn.xzt.ask.utils.ResultStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -22,6 +21,11 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
+    /**
+     * 查询留言
+     * @param getMessageDTO
+     * @return
+     */
     @PostMapping("/get")
     public R getMessage(@RequestBody GetMessageDTO getMessageDTO) {
         if (getMessageDTO.getPageNum() == null || getMessageDTO.getPageSize() == null) {
@@ -35,6 +39,12 @@ public class MessageController {
         }
     }
 
+
+    /**
+     * 删除留言
+     * @param removeMessageDTO
+     * @return
+     */
     @PostMapping("/delete")
     public R delete(@RequestBody RemoveMessageDTO removeMessageDTO) {
         List<Integer> ids = removeMessageDTO.getIds();
@@ -46,6 +56,12 @@ public class MessageController {
         }
     }
 
+
+    /**
+     * 回复留言
+     * @param message
+     * @return
+     */
     @PostMapping("/reply")
     public R replyMessage(@RequestBody Message message){
        if(message.getMessageId()!=null&&message.getReply()!=null){
