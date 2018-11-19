@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.xzt.ask.mapper.MessageMapper">
+    <select id="getMessage" resultType="cn.xzt.ask.domain.Message">
+        select m.message_id as messageId,
+        m.title as title,
+        m.content as content,
+        m.reply as reply,
+        m.phone as phone,
+        m.email as email,
+        m.create_time as createTime,
+        m.update_time as updateTime
+        from message m
+    </select>
+
+    <delete id="deleteMessage">
+        delete from message where message_id in
+        <foreach collection="list"  item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <update id="replyMessage" parameterType="cn.xzt.ask.domain.Message" >
+        update message
+        <set>
+            <if test="messageId != null">reply=#{reply},</if>
+        </set>
+        where message_id=#{messageId}
+    </update>
+</mapper>
