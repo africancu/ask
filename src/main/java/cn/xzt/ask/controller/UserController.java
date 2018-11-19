@@ -27,7 +27,7 @@ public class UserController {
         }
         UserDTO login = userService.login(user);
         if (null == login){
-            return R.error(ResultStatus.ERROR.getCode(), ResultStatus.ERROR.getMessage());
+            return R.error(ResultStatus.LOGIN_ERROR.getCode(), ResultStatus.LOGIN_ERROR.getMessage());
         }
         return R.ok(login);
     }
