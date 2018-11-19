@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.xzt.ask.mapper.MessageMapper">
+
+    <sql id="Base_Column_List" >
+    message_id, title, content, reply, phone, email, create_time, update_time
+    </sql>
+
+    <insert id="insert" >
+     insert into message ( title, content,
+       phone, email
+      )
+     values ( #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="list" resultType="cn.xzt.ask.domain.Question">
+           SELECT q.question_id as questionId,
+            q.type_id as typeId,
+            q.question as question,
+            q.count as count
+           from question q
+
+        <if test=' typeId != null and "" != typeId '>
+           where q.type_id=#{typeId}
+        </if>
+
+        ORDER BY q.count desc
+    </select>
+</mapper>
