@@ -52,14 +52,14 @@ public class FontMessageController {
     }
 
     @GetMapping("/list")
-    public R findAll(String typeId, Integer currentPage, Integer pageSize) throws Exception {
-        if (currentPage == null) {
-            currentPage = 1;
+    public R findAll(String typeId, Integer pageNum, Integer pageSize) throws Exception {
+        if (pageNum  == null) {
+            pageNum  = 1;
         }
         if (pageSize == null) {
             pageSize = 10;
         }
-        PageUtil<Question> comments = messageService.list(typeId, currentPage, pageSize);
+        PageUtil<Question> comments = messageService.list(typeId, pageNum , pageSize);
         return R.ok(comments);
     }
 
