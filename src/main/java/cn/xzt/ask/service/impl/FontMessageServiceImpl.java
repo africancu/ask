@@ -2,8 +2,8 @@ package cn.xzt.ask.service.impl;
 
 import cn.xzt.ask.domain.Message;
 import cn.xzt.ask.domain.Question;
-import cn.xzt.ask.mapper.MessageMapper;
-import cn.xzt.ask.service.MessageService;
+import cn.xzt.ask.mapper.FontMessageMapper;
+import cn.xzt.ask.service.FontMessageService;
 import cn.xzt.ask.utils.PageUtil;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ import java.util.List;
  */
 
 @Service
-public class MessageServiceImpl implements MessageService {
+public class FontMessageServiceImpl implements FontMessageService {
 
-    private MessageMapper messageMapper;
+    private FontMessageMapper messageMapper;
 
     @Autowired
-    public MessageServiceImpl(MessageMapper messageMappers) {
+    public FontMessageServiceImpl(FontMessageMapper messageMappers) {
         messageMapper=messageMappers;
     }
 

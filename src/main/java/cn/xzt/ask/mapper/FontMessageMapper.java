@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Component
-public interface MessageMapper {
+public interface FontMessageMapper {
 
     int insert(Message message);
 

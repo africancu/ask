@@ -11,7 +11,7 @@ import java.util.List;
  * @Auther: lyj
  * @Date: 2018/11/19 11:13
  */
-public interface MessageService {
+public interface FontMessageService {
 
 
     boolean insert(Message message);
